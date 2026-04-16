@@ -20,6 +20,31 @@ window.addEventListener('keyup', (e) => {
     }
 });
 
+// Mobile Controls Mapping
+const btnLeft = document.getElementById('btnLeft');
+const btnRight = document.getElementById('btnRight');
+const btnBrake = document.getElementById('btnBrake');
+const btnAccel = document.getElementById('btnAccel');
+
+function bindButton(btn, keyName) {
+    btn.addEventListener('mousedown', () => keys[keyName] = true);
+    btn.addEventListener('mouseup', () => keys[keyName] = false);
+    btn.addEventListener('mouseleave', () => keys[keyName] = false);
+    btn.addEventListener('touchstart', (e) => {
+        e.preventDefault(); // Prevent default touch behavior like scrolling
+        keys[keyName] = true;
+    });
+    btn.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        keys[keyName] = false;
+    });
+}
+
+bindButton(btnLeft, 'ArrowLeft');
+bindButton(btnRight, 'ArrowRight');
+bindButton(btnBrake, 'ArrowDown');
+bindButton(btnAccel, 'ArrowUp');
+
 const car = {
     x: canvas.width / 2,
     y: canvas.height / 2 + 150,

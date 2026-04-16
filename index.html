@@ -7,7 +7,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div id="mobileControls">
+            <div class="control-group left-controls">
+                <button id="btnLeft" class="control-btn">Left</button>
+                <button id="btnRight" class="control-btn">Right</button>
+            </div>
+            <div class="control-group right-controls">
+                <button id="btnBrake" class="control-btn">Brake</button>
+                <button id="btnAccel" class="control-btn">Accel</button>
+            </div>
+        </div>
+    </div>
     <script src="game.js"></script>
 </body>
 </html>
